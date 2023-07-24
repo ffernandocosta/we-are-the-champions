@@ -1,0 +1,26 @@
+:root {
+    --clr-text: hsla(251, 18%, 12%, 1);
+    --clr-background: hsla(221, 39%, 11%, 1);
+    --clr-neutral: hsla(0, 0%, 100%, 1);
+    --clr-neutral-black: hsla(0, 0%, 0%, 1);
+    --clr-primary: hsla(202, 88%, 55%, 1);
+    --clr-secondary: hsla(249, 16%, 30%, 1);
+    --clr-accent: hsla(202, 74%, 6%, 1);
+
+    --ff-primary: 'Inter', sans-serif;
+    --ff-secondary: 'Josefin Sans', sans-serif;
+
+    --ff-body: var(--ff-primary);
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-500: 0.875rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.375rem;
+    --fs-800: 1.563rem; 
+
+    --fs-body: var(--fs-500);
+    --fs-heading: var(--fs-800);
+    --fs-heading-2: var(--fs-700);
+}
