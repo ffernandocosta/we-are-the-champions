@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://we-are-the-champions-af4aa-default-rtdb.firebaseio.com/"
@@ -48,6 +48,7 @@ onValue(endorsementsInDB, (snapshot) => {
 });
 
 function appendPostToEndorsementPostsEl(post) {
+    const postID = post[0];
     const postValue = post[1];
 
     const newPostEl = document.createElement('article');
@@ -62,4 +63,24 @@ function appendPostToEndorsementPostsEl(post) {
     `
 
     endorsementPostsEl.appendChild(newPostEl);
+
+    newPostEl.addEventListener('click', (e) => {
+        if (e.target.classList.contains('like-icon')) {
+            if (postValue.isLiked) {
+                postValue.likeCount--
+            }
+            else {
+                postValue.likeCount++
+            }
+            
+            postValue.isLiked = !postValue.isLiked
+            
+            const updateData = {
+                likeCount: postValue.likeCount,
+                isLiked: postValue.isLiked
+            }
+
+            update(ref(database, `endorsements/${postID}`), updateData);
+        }
+    })
 }
