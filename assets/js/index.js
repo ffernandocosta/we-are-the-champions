@@ -18,6 +18,9 @@ const endorsementPostsEl = document.getElementById('endorsement--posts');
 endorsementFormEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    clearEndorsementsPostsEl();
+    clearInputFieldsEl();
+
     const endorsementObject = getEndorsementObject();
 
     push(endorsementsInDB, endorsementObject);
@@ -79,8 +82,18 @@ function appendPostToEndorsementPostsEl(post) {
                 likeCount: postValue.likeCount,
                 isLiked: postValue.isLiked
             }
+            clearEndorsementsPostsEl();
+            clearInputFieldsEl();
 
             update(ref(database, `endorsements/${postID}`), updateData);
         }
     })
+}
+
+const clearEndorsementsPostsEl = () => endorsementPostsEl.innerHTML = "";
+
+const clearInputFieldsEl = () => {
+    endorsementInputFromEl.value = "";
+    endorsementInputTextEl.value = "";
+    endorsementInputToEl.value = "";
 }
