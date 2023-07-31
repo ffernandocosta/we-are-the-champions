@@ -62,7 +62,7 @@ function appendPostToEndorsementPostsEl(post) {
         <span class="post-to">To ${postValue.to}</span>
         <p class="post-content">${postValue.endorsementContent}</p>
         <span class="post-from">From ${postValue.from}</span>
-        <span class="post-heart"><i class="fa-solid fa-heart like-icon"></i>${postValue.likeCount}</span>
+        <span class="post-heart"><i class="fa-solid fa-heart like-icon"></i>${postValue.likeCount ? postValue.likeCount : ''}</span>
     `
 
     endorsementPostsEl.appendChild(newPostEl);
