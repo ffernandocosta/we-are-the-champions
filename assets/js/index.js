@@ -70,7 +70,7 @@ function appendPostToEndorsementPostsEl(post) {
         </span>
     `
 
-    endorsementPostsEl.appendChild(newPostEl);
+    endorsementPostsEl.insertBefore(newPostEl, endorsementPostsEl.firstElementChild);
 
     newPostEl.addEventListener('click', (e) => {
         if (e.target.classList.contains('like-icon')) {
