@@ -18,10 +18,10 @@ const endorsementPostsEl = document.getElementById('endorsement--posts');
 endorsementFormEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const endorsementObject = getEndorsementObject();
+
     clearEndorsementsPostsEl();
     clearInputFieldsEl();
-
-    const endorsementObject = getEndorsementObject();
 
     push(endorsementsInDB, endorsementObject);
 });
@@ -82,13 +82,14 @@ function appendPostToEndorsementPostsEl(post) {
             }
             
             postValue.isLiked = !postValue.isLiked
+
+            clearEndorsementsPostsEl();
+            clearInputFieldsEl();
             
             const updateData = {
                 likeCount: postValue.likeCount,
                 isLiked: postValue.isLiked
             }
-            clearEndorsementsPostsEl();
-            clearInputFieldsEl();
 
             update(ref(database, `endorsements/${postID}`), updateData);
         }
