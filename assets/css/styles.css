@@ -74,6 +74,10 @@ body {
     background-color: var(--clr-secondary);
     border: none;
     border-radius: 0.5rem;
+
+        &:focus {
+            outline: solid 2px var(--clr-primary);
+        }
 }
 
 .endorsement-post-content {
@@ -85,6 +89,10 @@ body {
     background-color: var(--clr-secondary);
     border: none;
     border-radius: 0.5rem;
+
+        &:focus {
+            outline: solid 2px var(--clr-primary);
+        }
 }
 
 .input-from {
