@@ -117,6 +117,12 @@ body {
     font-size: var(--fs-600);
     font-weight: var(--fw-bold);
     font-family: var(--ff-secondary);
+
+        &:hover {
+            background-color: hsla(202, 88%, 60%, 1);
+            cursor: pointer;
+            box-shadow: hsla(202, 88%, 55%, 0.1) 0px 10px 50px;
+        }
 }
 
 /* ENDORSEMENTS POSTS */
@@ -169,6 +175,7 @@ h2 {
 
 .like-icon {
     margin: 0 0.7rem 0 0;
+        
         &:hover {
             cursor: pointer;
         }
