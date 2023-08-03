@@ -10,7 +10,7 @@ const database = getDatabase(app);
 const endorsementsInDB = ref(database, "endorsements");
 
 const endorsementFormEl = document.getElementById('endorsement--form');
-const endorsementInputTextEl = document.getElementById('input-endorsement');
+const endorsementTextareaEl = document.getElementById('endorsement-textarea');
 const endorsementInputToEl = document.getElementById('input-to');
 const endorsementInputFromEl = document.getElementById('input-from');
 const endorsementPostsEl = document.getElementById('endorsement--posts');
@@ -29,7 +29,7 @@ endorsementFormEl.addEventListener('submit', (e) => {
 
 function getEndorsementObject() {
     const endorsementObject = {
-        endorsementContent: endorsementInputTextEl.value,
+        endorsementContent: endorsementTextareaEl.value,
         to: endorsementInputToEl.value,
         from: endorsementInputFromEl.value,
         isLiked: false,
@@ -100,6 +100,6 @@ const clearEndorsementsPostsEl = () => endorsementPostsEl.innerHTML = "";
 
 const clearInputFieldsEl = () => {
     endorsementInputFromEl.value = "";
-    endorsementInputTextEl.value = "";
+    endorsementTextareaEl.value = "";
     endorsementInputToEl.value = "";
 }
