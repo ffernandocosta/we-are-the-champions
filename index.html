@@ -24,14 +24,14 @@
 
             <section>
                 <form class="endorsement--form" id="endorsement--form">
-                    <textarea name="endorsements" id="endorsement-textarea" class="endorsement-post-content" placeholder="Write your endorsement here!" maxlength="400" required></textarea>
+                    <textarea name="endorsements" id="endorsement-textarea" class="endorsement-post-content" placeholder="Write your endorsement here!" minlength="50" maxlength="400" required></textarea>
                     <input type="text" class="input-from" id="input-from" placeholder="From" required>
                     <input type="text" class="input-to" id="input-to" placeholder="To" required>
                     <input type="submit" class="input-publish" value="Publish">
                 </form>
 
                 <h2>- Endorsements -</h2>
-                <div id="endorsement--posts">
+                <div id="endorsement--posts" class="endorsement--posts">
                     <!--ENDORSEMENTS HERE!-->
                 </div>
             </section>
