@@ -43,6 +43,8 @@ onValue(endorsementsInDB, (snapshot) => {
     if(snapshot.exists()) {
         const endorsementsArray = Object.entries(snapshot.val());
 
+        clearEndorsementsPostsEl();
+
         for (let i = 0; i < endorsementsArray.length; i++) {
             const currentEndorsement = endorsementsArray[i];
             appendPostToEndorsementPostsEl(currentEndorsement);
@@ -82,9 +84,6 @@ function appendPostToEndorsementPostsEl(post) {
             }
             
             postValue.isLiked = !postValue.isLiked
-
-            clearEndorsementsPostsEl();
-            clearInputFieldsEl();
             
             const updateData = {
                 likeCount: postValue.likeCount,
