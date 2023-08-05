@@ -40,6 +40,10 @@ body {
 }
 
 /* HERO WRAPPER */
+.sign-out-button {
+    justify-self: right;
+}
+
 .hero--wrapper {
     display: grid;
     gap: 1rem;
@@ -102,7 +106,8 @@ body {
 }
 
 .auth--sign-up,
-.auth--login {
+.auth--login,
+.sign-out-button {
     width: 100px;
     padding: 0.1rem 0.5rem;
     margin: 0.4rem 0 0 0;
