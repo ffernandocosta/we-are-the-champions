@@ -17,12 +17,38 @@
 <body>
     <main>
         <div class="container">
-            <article class="hero--wrapper">
-                <img src="/assets/images/Freddie.svg" alt="White logo of Freddie with his hands in the air">
-                <h1 class="hero--title">We are the Champions</h1>
-            </article>
-
             <section>
+                <article class="hero--wrapper">
+                    <img src="/assets/images/Freddie.svg" alt="White logo of Freddie with his hands in the air">
+                    <h1 class="hero--title">We are the Champions</h1>
+                </article>
+
+                <form class="auth--form" id="auth--form">
+                    <fieldset>
+                        <legend>
+                            Hello and welcome, login or sign up to access the endorsements!
+                        </legend>
+
+                        <div class="form-group-input">
+                            <label for="user-email" class="label-email">E-mail</label>
+                            <input type="email" class="user-email" id="user-email" placeholder="username@example.com" minlength="3" maxlength="64" required>
+                        </div>
+                        
+                        <div class="form-group-input">
+                            <label for="user-password" class="label-password">Password</label>
+                            <input type="password" class="user-password" id="user-password" placeholder="***********" minlength="3" maxlength="20" required>
+                        </div>
+                        
+                        <div class="form-group-submit">
+                            <input type="submit" id="auth--login" class="auth--login" value="Login">
+                            <input type="submit" id="auth--sign-up" class="auth--sign-up" value="Sign Up">
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+
+
+            <section class="endorsements--section">
                 <form class="endorsement--form" id="endorsement--form">
                     <textarea name="endorsements" id="endorsement-textarea" class="endorsement-post-content" placeholder="Write your endorsement here!" minlength="50" maxlength="400" required></textarea>
                     <input type="text" class="input-from" id="input-from" placeholder="From" maxlength="15" required>
