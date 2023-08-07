@@ -91,6 +91,19 @@ const checkAuthState = async() => {
             endorsementsSectionEl.style.display = 'block';
             authFormEl.style.display = 'none';
             signOutButton.style.display = 'block';
+
+            onValue(endorsementsInDB, (snapshot) => {
+                if(snapshot.exists()) {
+                    const endorsementsArray = Object.entries(snapshot.val());
+            
+                    clearEndorsementsPostsEl();
+            
+                    for (let i = 0; i < endorsementsArray.length; i++) {
+                        const currentEndorsement = endorsementsArray[i];
+                        appendPostToEndorsementPostsEl(currentEndorsement, user.uid);
+                    }
+                }
+            });
         }
         else {
             endorsementsSectionEl.style.display = 'none';
@@ -117,42 +130,32 @@ function getEndorsementObject() {
         endorsementContent: endorsementTextareaEl.value,
         to: endorsementInputToEl.value,
         from: endorsementInputFromEl.value,
-        isLiked: false,
+        likes: ['0'],
         likeCount: 0
     }
 
     return endorsementObject
 }
 
-onValue(endorsementsInDB, (snapshot) => {
-    if(snapshot.exists()) {
-        const endorsementsArray = Object.entries(snapshot.val());
-
-        clearEndorsementsPostsEl();
-
-        for (let i = 0; i < endorsementsArray.length; i++) {
-            const currentEndorsement = endorsementsArray[i];
-            appendPostToEndorsementPostsEl(currentEndorsement);
-        }
-    }
-});
-
-function appendPostToEndorsementPostsEl(post) {
+function appendPostToEndorsementPostsEl(post, userUid) {
     const postID = post[0];
     const postValue = post[1];
+    
+    const uidLikesArray = Object.values(postValue.likes)
+    const userLiked = uidLikesArray.includes(userUid)
 
     const newPostEl = document.createElement('article');
     
     newPostEl.classList.add('endorsement--post');
 
-    let postLikedIconClass = '';
+    let postLikedIconClass = userLiked ? 'liked' : '';
 
     newPostEl.innerHTML = `
         <span class="post-to">To ${postValue.to}</span>
         <p class="post-content">${postValue.endorsementContent}</p>
         <span class="post-from">From ${postValue.from}</span>
         <span class="post-heart">
-            <i class="fa-solid fa-heart like-icon ${postValue.isLiked ? postLikedIconClass = 'liked' : ''}"></i>
+            <i class="fa-solid fa-heart like-icon ${postLikedIconClass}"></i>
             <span class="like-count">${postValue.likeCount ? postValue.likeCount : ''}</span>
         </span>
     `
@@ -161,21 +164,21 @@ function appendPostToEndorsementPostsEl(post) {
 
     newPostEl.addEventListener('click', (e) => {
         if (e.target.classList.contains('like-icon')) {
-            if (postValue.isLiked) {
-                postValue.likeCount--
+            const userIndex = postValue.likes.indexOf(userUid);
+
+            if (userIndex !== -1) {
+                postValue.likes.splice(userIndex, 1);
             }
             else {
-                postValue.likeCount++
-            }
-            
-            postValue.isLiked = !postValue.isLiked
-            
-            const updateData = {
-                likeCount: postValue.likeCount,
-                isLiked: postValue.isLiked
+                postValue.likes.push(userUid);
             }
 
-            update(ref(database, `endorsements/${postID}`), updateData);
+            const postValueUpdateData = {
+                likes: postValue.likes,
+                likeCount: postValue.likes.length - 1
+            }
+
+            update(ref(database, `endorsements/${postID}`), postValueUpdateData);
         }
     })
 }
