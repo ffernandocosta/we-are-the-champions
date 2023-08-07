@@ -29,7 +29,11 @@ Os usuários devem ser capazes de:
 
 ### Preview video
 
-/* video here */
+
+
+https://github.com/ffernandocosta/we-are-the-champions/assets/70672573/e80b9b52-af3c-42df-b70a-0f58a8de165f
+
+
 
 ### Links
 
@@ -99,9 +103,9 @@ Users should be able to:
 - See error message if item name is empty
 - Switch between light and dark more and see item hover animation
 
-### Screenshot
+### Video preview
 
-/* video here */
+[/* video here */](https://github.com/ffernandocosta/we-are-the-champions/assets/70672573/e80b9b52-af3c-42df-b70a-0f58a8de165f)
 
 ### Links
 
