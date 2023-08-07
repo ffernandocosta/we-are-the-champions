@@ -1,5 +1,5 @@
 # We are the Champions
-_[Read it in English](#English)_
+_[Read it in English](#english-version)_
 
 Endorsements web app que desenvolvi como desafio de projeto solo do módulo 3 de JavaScript do curso [Scrimba](scrimba.com) usando Firebase. Aprendi bastante sobre como usar Firebase e Real-time Database para armazenar e e sincronizar dados em tempo real em vários clientes.
 
@@ -68,13 +68,8 @@ Os usuários devem ser capazes de:
   <a href="https://twitter.com/ffernandodev" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="My twitter profile"</a>
 </div>
 
+#### _English version_
 
-
-<div id="English">
-
-_English version_
-
-</div>
 
 # We are the Champions
 
